@@ -1,4 +1,4 @@
-type Post @model {
+type Post @model @aws_api_key {
 	id: ID!
 	postOwnerId: String!
 	postOwnerUsername: String!
@@ -9,7 +9,7 @@ type Post @model {
 	likes: [Like] @connection(name: "PostLikes")
 }
  
-type Comment @model {
+type Comment @model @aws_api_key {
 	id: ID!
 	commentOwnerId: String!
 	commentOwnerUsername: String!
@@ -18,7 +18,7 @@ type Comment @model {
 	createdAt: String!
 }
  
-type Like @model {
+type Like @model @aws_api_key {
 	id: ID!
 	numberLikes: Int!
 	likeOwnerId: String!
